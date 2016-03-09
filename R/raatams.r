@@ -9,6 +9,36 @@
 ## convert to trip / sp / SGAT etc.
 
 
+installpath <- function(filename) {
+  file.path(system.file("extdata", "rawdata", package = "raatams"), filename)
+}
+
+
+
+#' Title
+#'
+#' Currently only saves to raw file name.
+#' @param tn
+#' @param initial
+#'
+#' @return
+bulkinitialdownload <- function(tn = NULL, initial = TRUE) {
+  tn <- unique(c(tn, knownTypeNames()))
+  report <- character(length(tn))
+  for (i in seq_along(tn)) {
+    localfile <- installpath(tn[i])
+    if (!file.exists(localfile)) {
+      bu <- burl(tn[i])
+      report[i] <- try(download.file(bu, localfile, mode = "wb"))
+    }
+  }
+  invisible(report)
+}
+
+knownTypeNames <- function() {
+  c("aatams_sattag_nrt_profile_data")
+}
+
 
 #' Title
 #'
