@@ -1,0 +1,11 @@
+Package: raatams
+Type: Package
+Title: Obtain Tracking Data from AATAMS
+Version: 0.1.0
+Authors@R: person("Michael D.","Sumner", role = c("aut", "cre"), email = "mdsumner@gmail.com")
+Description: Bulk initial download and ongoing update of AATAMS tracking data
+    from the IMOS portal.
+License: GPL-3
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Suggests: testthat
